@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concurrent FIFO Audio Visualizer</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <p class="eyebrow">HOMEWORK 2 | EXERCISE 2</p>
+      <h1>Audio Visualizer Queue Engine</h1>
+      <p class="subtitle">Analyze audio frequencies and process tracks in FIFO order.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Audio Engine</h2>
+      <div class="controls">
+        <label class="file-button">
+          Add audio files
+          <input id="audioFiles" type="file" accept="audio/*" multiple />
+        </label>
+
+        <label>
+          FFT Size
+          <select id="fftSize">
+            <option value="256">256</option>
+            <option value="512" selected>512</option>
+          </select>
+        </label>
+
+        <button id="playNext" type="button">Play next</button>
+        <button id="stopAudio" type="button" class="secondary">Stop</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite">Ready. Add audio files to begin.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <h2>Frequency Visualizer</h2>
+        <span id="currentTrack">No track playing</span>
+      </div>
+      <canvas id="visualizer" aria-label="Live audio frequency visualization"></canvas>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <h2>FIFO Queue</h2>
+        <span id="queueCount">0 tracks</span>
+      </div>
+      <ol id="queueList" class="queue-list">
+        <li class="empty">Your queue is empty.</li>
+      </ol>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
