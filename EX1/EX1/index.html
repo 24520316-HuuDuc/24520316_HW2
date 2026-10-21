@@ -1,0 +1,83 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Accessible enterprise data grid with sorting, filtering, and pagination.">
+  <title>Enterprise Data Grid</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data-grid.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <p class="eyebrow">EX1 · DATA MANAGEMENT</p>
+      <h1>Enterprise Data Grid</h1>
+      <p class="subtitle">Manage employee records with sorting, filtering, and pagination.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="grid-heading">
+      <div class="panel-header">
+        <div>
+          <h2 id="grid-heading">Employee directory</h2>
+          <p id="result-count" aria-live="polite">Loading records...</p>
+        </div>
+        <label class="search-box">
+          <span>Search employees</span>
+          <input id="search-input" type="search"
+                 placeholder="Name, department, or email"
+                 autocomplete="off">
+        </label>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <caption>Employee records. Select a column heading to sort.</caption>
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="none">
+                <button class="sort-button" data-sort="id">ID <span aria-hidden="true">↕</span></button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button class="sort-button" data-sort="name">Name <span aria-hidden="true">↕</span></button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button class="sort-button" data-sort="department">Department <span aria-hidden="true">↕</span></button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button class="sort-button" data-sort="email">Email <span aria-hidden="true">↕</span></button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button class="sort-button" data-sort="status">Status <span aria-hidden="true">↕</span></button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="employee-table-body"></tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <label class="page-size">
+          Rows per page
+          <select id="page-size">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+          </select>
+        </label>
+
+        <nav class="pagination" aria-label="Table pagination">
+          <button id="previous-page" type="button" disabled>Previous</button>
+          <span id="page-info" aria-live="polite">Page 1 of 1</span>
+          <button id="next-page" type="button">Next</button>
+        </nav>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p>Accessible Data Grid · Keyboard-friendly · Responsive layout</p>
+    </footer>
+  </main>
+</body>
+</html>
